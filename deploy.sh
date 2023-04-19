@@ -13,6 +13,9 @@ push_branch=master # 推送的分支
 # 生成静态文件
 yarn build
 
+#将readme 拷贝过去
+cp README.md $dist_path
+
 # 进入生成的文件夹
 cd $dist_path
 
