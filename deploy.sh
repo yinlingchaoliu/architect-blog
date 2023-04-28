@@ -3,12 +3,21 @@
 # 确保脚本抛出遇到的错误
 set -e
 
-push_addr="git@github.com:yinlingchaoliu/yinlingchaoliu.github.io.git"
+# 是否自动部署
+auto=""
+if [ -z $1 ]; then
+  auto=""    
+else
+  auto=`echo ci $1`
+fi
 
-# push_addr=`git remote get-url --push origin` # git提交地址，也可以手动设置，比如：push_addr=git@github.com:xugaoyi/vuepress-theme-vdoing.git
+push_addr="git@github.com:yinlingchaoliu/yinlingchaoliu.github.io.git"
+push_branch=master # 推送的分支
+user_name=`git log -1 --pretty=format:'%an'`
+user_email=`git log -1 --pretty=format:'%ae'`
+
 commit_info=`git describe --all --always --long`
 dist_path=docs/.vuepress/dist # 打包生成的文件夹路径
-push_branch=master # 推送的分支
 
 # 生成静态文件
 yarn build
@@ -20,8 +29,10 @@ cp README.md $dist_path
 cd $dist_path
 
 git init
+git config user.name ${user_name}
+git config user.email ${user_email}
 git add -A
-git commit -m "deploy, $commit_info"
+git commit -m "$auto deploy, $commit_info"
 git push -f $push_addr HEAD:$push_branch
 
 cd -
