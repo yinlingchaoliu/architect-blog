@@ -19,11 +19,12 @@ user_email=`git log -1 --pretty=format:'%ae'`
 commit_info=`git describe --all --always --long`
 dist_path=docs/.vuepress/dist # 打包生成的文件夹路径
 
+mkdir -p $dist_path
+#将readme 拷贝过去
+cp README.MD $dist_path
+
 # 生成静态文件
 yarn build
-
-#将readme 拷贝过去
-cp README.md $dist_path
 
 # 进入生成的文件夹
 cd $dist_path
