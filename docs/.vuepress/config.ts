@@ -18,7 +18,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 	locales: {
 		'/': {
 			lang: 'zh-CN',
-			title: "Tong's blog",
+			title: '引领潮流',
 			description: 'web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。',
 		},
 	},
@@ -325,11 +325,11 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 			{
 				choosen: 'gitalk',
 				options: {
-					clientID: 'a6e1355287947096b88b',
-					clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
+					clientID: 'f9f8d2298aa21f8a3b8b',
+					clientSecret: '2f395e0f61bae1a8a3c73e7bd70adab69e8ee7b7',
 					repo: 'blog-gitalk-comment', // GitHub 仓库
-					owner: 'xugaoyi', // GitHub仓库所有者
-					admin: ['xugaoyi'], // 对仓库有写权限的人
+					owner: 'yinlingchaoliu', // GitHub仓库所有者
+					admin: ['yinlingchaoliu'], // 对仓库有写权限的人
 					// distractionFreeMode: true,
 					pagerDirection: 'last', // 'first'正序 | 'last'倒序
 					id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
