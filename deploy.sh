@@ -36,5 +36,13 @@ git add -A
 git commit -m "$auto deploy, $commit_info"
 git push -f $push_addr HEAD:$push_branch
 
+# 本地构建
+# if [ -z $auto ]; then
+# else  # 自动化构建
+#   access_url="https://yinlingchaoliu:${{secrets.ACCESS_TOKEN}}@$push_addr"
+#   git remote add origin $access_url
+#   git push origin HEAD:$push_branch --force # 推送到github $deploy_branch分支
+# fi
+
 cd -
 rm -rf $dist_path
