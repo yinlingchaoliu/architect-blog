@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }} # 版本
       - name: Build-and-deploy # 步骤3 # remote_addr=`git remote get-url --push origin`
+        with: ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           yarn install 
           yarn autodeploy # 自动部署
