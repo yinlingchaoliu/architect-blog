@@ -15,7 +15,7 @@ jobs:
   build: # 自定义名称
     runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     strategy:
       matrix:
         node-version: [14.x]
@@ -33,10 +33,10 @@ jobs:
           # yarn build
           mkdir -p docs/.vuepress/dist
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: master # 你要发布到哪个分支（GitHub Pages的仓库分支，不是你hugo代码的分支）
-          FOLDER: docs/.vuepress/dist # 发布的文件夹，默认就是public
+          branch: master # 你要发布到哪个分支（GitHub Pages的仓库分支，不是你hugo代码的分支）
+          folder: docs/.vuepress/dist # 发布的文件夹，默认就是public
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 我发布到不同的仓库，需要用到私钥，私钥用GitHub Secret来管理，发布同仓库可以去掉这个配置
           repository-name: yinlingchaoliu/yinlingchaoliu.github.io # 发布到同仓库的不同分支要去掉这个配置
 
