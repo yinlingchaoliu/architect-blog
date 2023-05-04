@@ -29,15 +29,16 @@ jobs:
           node-version: ${{ matrix.node-version }} # 版本
       - name: Build # 步骤3 # remote_addr=`git remote get-url --push origin`
         run: |
-          # yarn install
-          # yarn build
-          yarn autodeploy
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     branch: master # 你要发布到哪个分支（GitHub Pages的仓库分支，不是你hugo代码的分支）
-      #     folder: docs/.vuepress/dist # 发布的文件夹，默认就是public
-      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 我发布到不同的仓库，需要用到私钥，私钥用GitHub Secret来管理，发布同仓库可以去掉这个配置
-      #     repository-name: yinlingchaoliu/yinlingchaoliu.github.io # 发布到同仓库的不同分支要去掉这个配置
+          yarn install
+          yarn build
 
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          REPOSITORY_NAME: yinlingchaoliu/yinlingchaoliu.github.io
+          BRANCH: master
+          FOLDER: docs/.vuepress/dist
       # 只提交到github pages也可以使用github-pages-deploy-action，详见: https://github.com/JamesIves/github-pages-deploy-action
+
+      # https://zhuanlan.zhihu.com/p/364366127

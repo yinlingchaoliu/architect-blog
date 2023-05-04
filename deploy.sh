@@ -24,7 +24,7 @@ mkdir -p $dist_path
 cp README.MD $dist_path
 
 # 生成静态文件
-# yarn build
+yarn build
 
 # 进入生成的文件夹
 cd $dist_path
@@ -34,15 +34,7 @@ git config user.name ${user_name}
 git config user.email ${user_email}
 git add -A
 git commit -m "$auto deploy, $commit_info"
-
-# 本地构建
-if [ -z $auto ]; then
-  git push -f $push_addr HEAD:$push_branch
-else  # 自动化构建
-  access_url="https://yinlingchaoliu:${{secrets.ACCESS_TOKEN}}@$push_addr"
-  git remote add origin $access_url
-  git push origin HEAD:$push_branch --force # 推送到github $deploy_branch分支
-fi
+git push -f $push_addr HEAD:$push_branch
 
 cd -
 rm -rf $dist_path
