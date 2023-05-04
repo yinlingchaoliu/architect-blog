@@ -31,7 +31,8 @@ jobs:
         run: |
           yarn install
           yarn build
-
+          cp README.MD  docs/.vuepress/dist
+          cp baidu_verify_codeva-xeeBvuMQbl.html docs/.vuepress/dist
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:

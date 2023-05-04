@@ -23,6 +23,9 @@ mkdir -p $dist_path
 #将readme 拷贝过去
 cp README.MD $dist_path
 
+# 将百度网站验证拷贝过去
+cp baidu_verify_codeva-xeeBvuMQbl.html $dist_path
+
 # 生成静态文件
 yarn build
 
