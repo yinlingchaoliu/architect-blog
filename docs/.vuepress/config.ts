@@ -325,12 +325,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 			{
 				choosen: 'gitalk',
 				options: {
-					clientID: 'f9f8d2298aa21f8a3b8b',
-					clientSecret: '2f395e0f61bae1a8a3c73e7bd70adab69e8ee7b7',
-					repo: 'blog-gitalk-comment', // GitHub 仓库
+					clientID: '96f6189ee6453507b21a',
+					clientSecret: '678f5b9b8e5000f91c789081c2d3652c4ec3ecc2',
+					repo: 'architect-blog', // GitHub 仓库
 					owner: 'yinlingchaoliu', // GitHub仓库所有者
 					admin: ['yinlingchaoliu'], // 对仓库有写权限的人
-					// distractionFreeMode: true,
+					distractionFreeMode: false,
 					pagerDirection: 'last', // 'first'正序 | 'last'倒序
 					id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
 					title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
