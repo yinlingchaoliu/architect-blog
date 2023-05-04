@@ -36,7 +36,7 @@ git init
 git config user.name ${user_name}
 git config user.email ${user_email}
 git add -A
-git commit -m "$auto deploy, $commit_info"
+git commit -m "deploy, $commit_info"
 git push -f $push_addr HEAD:$push_branch
 
 cd -
