@@ -19,5 +19,6 @@ jobs:
       - name: 'Checkout codes' # 步骤一，获取仓库代码
         uses: actions/checkout@v1
       - name: 'Run baiduPush' # 步骤二，执行sh命令文件
-        run:  # 运行目录是仓库根目录
-        yarn install  && yarn baiduPush
+        run: | # 运行目录是仓库根目录
+          yarn install 
+          yarn baiduPush
